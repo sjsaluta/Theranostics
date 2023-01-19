@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en" >
+<head>
+  <meta charset="UTF-8">
+  <title>UP Theranostics Databank</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1"><link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.0/css/all.min.css'><link rel="stylesheet" href="./MainCSS.css">
+
+</head>
+<body>
+<!-- partial:index.partial.html -->
+<div class='dashboard'>
+    <div class="dashboard-nav">
+        <header><a href="#!" class="menu-toggle"><i class="fas fa-bars"></i></a><a href="#" lass="brand-logo">
+            <i class="fas fa-anchor"></i> <span>UP TDB</span></a>
+        </header>
+
+        <nav class="dashboard-nav-list">
+            <a href="Main.html" class="dashboard-nav-item"><i class="fas fa-tachometer-alt"></i> Dashboard </a>
+            
+            <a href="Demographic.html" class="dashboard-nav-item"><i class="fas fa-file-upload"></i> New Record </a>
+            <div class='dashboard-nav-dropdown'><a class="dashboard-nav-item dashboard-nav-dropdown-toggle active">
+            <i class="fas fa-users"></i> Patients List </a>
+                <div class='dashboard-nav-dropdown-menu'>
+                    <a href="Patients.html" class="dashboard-nav-dropdown-item active">Database</a>
+                    <a href="View.html" class="dashboard-nav-dropdown-item">Demographics</a>
+                    <a href="PE.html" class="dashboard-nav-dropdown-item">Physical Exam</a>
+                    <a href="Screening.html" class="dashboard-nav-dropdown-item">Screening</a>
+                    <a href="Therapy.html" class="dashboard-nav-dropdown-item">Therapy</a>
+                    <a href="PT.html" class="dashboard-nav-dropdown-item">Post-Therapy</a>
+                    <a href="Followup.html" class="dashboard-nav-dropdown-item">Follow-up</a>
+                </div>
+            </div>
+            
+        </nav>
+    </div>
+
+    <div class='dashboard-app'>
+        <header class='dashboard-toolbar'><a href="#!" class="menu-toggle"><i class="fas fa-bars"></i></a></header>
+        <div class='dashboard-content'>
+            <div class='container'>
+                <div class='card'>
+                    <div class='card-header'>
+                        <h1>Patients Database</h1>
+                        <a href ="View.html"><button>View </button></a>
+                        <a href ="PE.html"><button>PE</button></a>
+                        <a href ="Screening.html"><button>SB</button></a>
+                        <a href ="Therapy.html"><button>Therapy </button></a>
+                        <a href ="PT.html"><button>Post-Therapy</button></a>
+                        <a href ="Followup.html"><button>Follow-up</button></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- partial -->
+<script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js'></script>
+<script src='https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.2/js/bootstrap.min.js'></script><script  src="./script.js"></script>
+<script>
+    const mobileScreen = window.matchMedia("(max-width: 990px )");
+    $(document).ready(function () {
+        $(".dashboard-nav-dropdown-toggle").click(function () {
+            $(this).closest(".dashboard-nav-dropdown")
+                .toggleClass("show")
+                .find(".dashboard-nav-dropdown")
+                .removeClass("show");
+            $(this).parent()
+                .siblings()
+                .removeClass("show");
+        });
+        $(".menu-toggle").click(function () {
+            if (mobileScreen.matches) {
+                $(".dashboard-nav").toggleClass("mobile-show");
+            } else {
+                $(".dashboard").toggleClass("dashboard-compact");
+            }
+        });
+    });
+</script>
+</body>
+</html>
+
+
